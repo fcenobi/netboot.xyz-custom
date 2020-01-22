@@ -11,15 +11,7 @@ set hostname ubuntu
 set domain_name fcenobi.com
 set repo_server 192.168.1.240
 set preseed_file preseed.cfg
-# If everything failed, give the user some options
-echo Entering to shell for Debug
-echo "Configured IP Details:"
-show net0/ip
-show net0/netmask
-show net0/gateway
-show dns
-show hostname
-show domain_name
+set github_user fcenobi
 
 :custom
 clear custom_choice
@@ -30,6 +22,7 @@ item option_two ${space} Loading an ISO
 item --gap This is a second sub menu
 item option_three ${space} Loads another custom sub menu
 item option_four ${space} This is option four
+item hbcd ${space} hbcd
 choose custom_choice || goto custom_exit
 echo ${cls}
 goto ${custom_choice}
