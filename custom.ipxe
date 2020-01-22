@@ -47,9 +47,20 @@ kernel https://boot.netboot.xyz/memdisk raw iso
 initrd http://w10.fcenobi.com/hbcd152.iso
 boot || goto custom_exit
 
+:hbcd
+kernel https://boot.netboot.xyz/memdisk raw iso
+initrd http://ftp.hosteurope.de/mirror/hirensbootcd.org/HBCD_PE_x64.iso
+boot || goto custom_exit
+
+boot || goto custom_exit
+
+
 :option_three
 echo Chains into another menu...
 chain https://raw.githubusercontent.com/fcenobi/netboot.xyz-custom/master/custom1.ipxe || goto custom
+
+
+
 
 :custom_exit
 chain utils.ipxe
